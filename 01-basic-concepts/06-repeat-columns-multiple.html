@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basic Concepts</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* CSS Grid */
+        .grid {
+            display:grid;
+            border: 3px solid red;
+            grid-template-columns: repeat(6, 1fr 5fr); /* this repeats 1:5 ratio (two columns) */
+            
+            /* TRY ALSO FOLLOWING EXAMPLES: */
+            /*grid-template-columns: 50px repeat(4, 1fr) 20px;*/ /* you can mix values and repeat */
+        }
+
+        /* Coloring */
+        .grid div { background-color: lightgray; }
+        .grid div:nth-child(even) {background-color: lightyellow;}
+    </style>
+</head>
+<body>
+    <p>
+        Description: this repeats 1:5 ratio (two columns, 1fr 5fr) six times, which results in 12 columns in total. because we specified only 8 divs, last four columns are empty but present in the grid! You can use devtools of your browser (hit F12), click on "grid" icon and inspect grid, rows and columns.
+    </p>
+    <div class="grid">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basic Concepts</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* CSS Grid */
+        .grid {
+            display:grid;
+            border: 3px solid red;
+            grid-template-columns: repeat(3, 1fr); /* three equal columns */
+            grid-auto-rows: minmax(40px, auto); /* rows will vary in height based on content inside the row */
+
+            /* TRY ALSO FOLLOWING EXAMPLES: */
+            /*grid-auto-rows: auto;*/  /* this will specify automatically added rows in patter 1:8:1:8:1:8:etc */
+        }
+
+        /* Coloring */
+        .grid div { background-color: lightgray; }
+        .grid div:nth-child(even) {background-color: lightyellow;}
+    </style>
+</head>
+<body>
+    <p>
+        Description: row will have automatic height based on content (in that row), but minimum 40px if content's height is less than 40px.
+    </p>
+    <div class="grid">
+        <div>1</div>
+        <div>2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate reprehenderit tenetur quibusdam culpa, sapiente soluta voluptatem ab, labore dolorum modi atque eos ex id commodi? Quaerat dicta perspiciatis harum quas dolorum cumque? Suscipit soluta voluptate sint deserunt, consectetur accusamus veritatis necessitatibus dolorum blanditiis vel odio unde quaerat, optio explicabo debitis?</div>
+        <div>3</div>
+        <div>4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sed fugit temporibus saepe error ipsum amet explicabo sint illo quam!</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+</body>
+</html>

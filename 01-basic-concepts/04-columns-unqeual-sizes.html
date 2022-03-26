@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basic Concepts</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* CSS Grid */
+
+        .grid {
+            display:grid;
+            border: 3px solid red;
+            grid-template-columns: 1fr 4fr 1fr; /* you can set uneual sizes of columns, even mix "px" "%" and other units if needed */
+
+            /* TRY ALSO FOLLOWING EXAMPLES: */
+            /*grid-template-columns: 30px 1fr 2fr;*/
+        }
+
+        /* Coloring */
+        .grid div { background-color: lightgray; }
+        .grid div:nth-child(even) {background-color: lightyellow;}
+    </style>
+</head>
+<body>
+    <p>
+        Description: You can set different proportions of your columns with "fractions". You can even mix them with different css units like "px", "%" and others. Always note grid implicitly creates additional rows (or columns) if amount of elements inside grid exceeds explicitely defined rows and columns. In this case we explicitly defined only 3 columns but no rows. Grid implicitely created rows for us automatically.
+    </p>
+    <div class="grid">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+</body>
+</html>

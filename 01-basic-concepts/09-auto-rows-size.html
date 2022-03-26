@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basic Concepts</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* CSS Grid */
+        .grid {
+            display:grid;
+            border: 3px solid red;
+            grid-template-columns: repeat(3, 1fr); /* three equal columns */
+            grid-auto-rows: 1fr 5fr 10fr; /* pattern in ration 1:5:10 will repeat for automatically added rows https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows */
+
+            /* TRY ALSO FOLLOWING EXAMPLES: */
+            /*grid-auto-rows: 150px;*/  /* in absolute pixels - use it only for specific cases  */
+            /*grid-auto-rows: 1fr 4fr;*/  /* even rows will be created with 1 fraction, odd rows with 4 fractions */
+        }
+
+        /* Coloring */
+        .grid div { background-color: lightgray; }
+        .grid div:nth-child(even) {background-color: lightyellow;}
+    </style>
+</head>
+<body>
+    <p>
+        Description: no rows are defined explicitely by developer, grid automatically calculates it needs to add 3 rows to fit in all content (8 divs). With grid-auto-rows you can control size of the automatically added rows. the same concept works also for columns.
+    </p>
+    <div class="grid">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+</body>
+</html>

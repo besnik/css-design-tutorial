@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basic Concepts</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* CSS Grid */
+        .grid {
+            display:grid;
+            border: 3px solid red;
+            grid-template-columns: repeat(3, 1fr); /* three equal columns */
+            grid-auto-rows: 100px;
+        }
+
+        /* Position content into the cells using grid lines */
+        /* Note we can put content into multiple cells at once. */
+        /* In this example with placed div with class content1 into 2nd and 3rd cell in first row
+           and div with content2 into first cell in first row.
+
+           This grid is under the hood defined by following grid lines | | :
+          |1| content2 |2| content1 |3| content1 |4|
+          |1| cell     |2| cell     |3| cell     |4|
+        */
+
+        .content1 {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            border: 1px blue dashed;
+        }
+
+        .content2 {
+            grid-row-start: 1;
+            grid-row-end: 2;
+            border: 1px green dashed;
+        }
+
+        /* TRY ALSO THIS: */
+        /*
+        .content2 {
+            grid-column-start:1;
+            grid-column-end:3;
+            grid-row-start:1;
+            grid-row-end:3;
+            border: 1px green dashed;
+        }
+        */
+
+        /* Coloring */
+        .grid div { background-color: lightgray; }
+        .grid div:nth-child(even) {background-color: lightyellow;}
+        
+        /* Make text in paragraphs more readable */
+        p { margin-bottom: 10px;}
+    </style>
+</head>
+<body>
+    <p>
+        Description: remember, grid is just bunch of vertical and horizontal lines defining rows and columns. Each colum is separated by two lines: left and right. The same goes for rows. When we define columns and rows, grid automatically defines lines that separates columns and rows and gives them a number. We can make use of it and reference cells or whole area using those numbered lines. Then we can put a content into those areas.
+    </p>
+    <p>
+        Numbering starts from top left corner. In our example there are 4 vertical lines that defines 3 columns inside them - numbering goes from left to right like 1,2,3,4. And 3 horizonal lines that defines two rows - numbering goes like 1,2,3 from top to botom.
+    </p>
+    <p>
+        Start developer tools of your browser (usually you press F12 key) and inspect html code. Locate our div element with grid class and you will see small button `grid` next to it. Click it and you will see details of the grid including numbered lines.
+    </p>
+    <p>
+        This is very powerful technique that allows you do create and re-arrange unique layouts (based on viewports). Note we don't need any html wrappers - our html is clean as it should be.
+    </p>
+    <div class="grid">
+        <div class="content1">1</div>
+        <div class="content2">2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+</body>
+</html>

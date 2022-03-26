@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basic Concepts</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* CSS Grid */
+        .grid {
+            display:grid;
+            border: 3px solid red;
+            grid-template-columns: repeat(3, 1fr); /* three equal columns */
+            grid-template-rows: 1fr 4fr 1fr; /* 3 rows in ration 4:1:1, 9th block is empty as we have only 8 div elements (content) to put into grid of 3x3 */
+            
+            /* TRY ALSO FOLLOWING EXAMPLES: */
+            /*grid-template-rows: 1fr 4fr 1fr 1fr;*/  /* four rows created but last row is empty because there is no content in the grid to be put it */
+        }
+
+        /* Coloring */
+        .grid div { background-color: lightgray; }
+        .grid div:nth-child(even) {background-color: lightyellow;}
+    </style>
+</head>
+<body>
+    <p>
+        Description: here we create 3 rows explicitely (also 3 columns explicitely). If there is more content (elements) in grid that could fit into explictly created grid, the grid will automatically (implicitly) add rows and columns, see also commented example of 4 explicit rows (last row will be created but empty as there is no content to be put in - in the example there are only 8 div elements as content).
+    </p>
+    <div class="grid">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+</body>
+</html>

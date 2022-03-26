@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basic Concepts</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* CSS Grid */
+
+        .grid {
+            display:grid;
+            border: 3px solid red;
+            grid-template-columns: 1fr 1fr 1fr; /* fr = fraction, let browser calculate width (column size = available width / number of fractions) */
+            
+            /* TRY ALSO FOLLOWING EXAMPLES: */
+            /*width: 50vw;*/  /* sets overal grid width to 50% of available viewport width (vw).*/
+        }
+
+        /* Coloring */
+        .grid div { background-color: lightgray; }
+        .grid div:nth-child(even) {background-color: lightyellow;}
+    </style>
+</head>
+<body>
+    <p>
+        Description: you as developer normally specify columns in "fr" aka "fractions" and let browser calculate width of columns based on available width of grid. Try set .grid width to 50vw which represents 50% of available Viewport Width. Read more <a href="https://css-tricks.com/fun-viewport-units/">here</a>. You want to use "fr" in layouts. Use "px" only in specific cases where you need to.
+    </p>
+    <div class="grid">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basic Concepts</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* CSS Grid */
+        .grid {
+            display:grid;
+            border: 3px solid red;
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-auto-rows: minmax(100px, 1fr) 3fr 1fr;
+        }
+
+        .content1 {
+            grid-row-start:1;
+            grid-row-end:1;
+            grid-column-start:1;
+            grid-column-end:4;
+        }
+
+        .content5 {
+            grid-row-start:3;
+            grid-row-end:4;
+            grid-column-start:1;
+            grid-column-end:4;
+        }
+
+        /* Coloring */
+        .grid div { background-color: lightgray; }
+        .grid div:nth-child(even) {background-color: lightyellow;}
+    </style>
+</head>
+<body>
+    <p>
+        Description: in this example we have five divs that could represent header (1), left sidebar (2), main content (3), right sidebar (4) and footer (5). (1) and (5) are positioned using grid lines into three cells (that represents whole row) of our grid. Note that we used just styles of grid itself to define this layout. Then position content into apropriate cells. Inspect grid lines using developer tools (F12, then click grid icon next to the div that represents our grid).
+    </p>
+    <div class="grid">
+        <div class="content1">1</div>
+        <div class="content2">2</div>
+        <div class="content3">3</div>
+        <div class="content4">4</div>
+        <div class="content5">5</div>
+    </div>
+</body>
+</html>
