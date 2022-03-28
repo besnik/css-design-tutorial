@@ -12,14 +12,24 @@
         /* CSS Grid */
         .grid {
             display:grid;
-            border: 3px solid red;
             grid-template-columns: repeat(3, 1fr); /* three equal columns */
-            grid-auto-rows: 1fr; /* automatically added rows will be equal in height */
-            height: 100vh; /* height of grid is 100% of viewport height */
-
-            /* TRY ALSO FOLLOWING EXAMPLES: */
-            /*grid-auto-rows: 1fr 8fr;*/  /* this will specify automatically added rows in patter 1:8:1:8:1:8:etc */
+            grid-auto-rows: 100px;
         }
+
+        .content1 {
+            grid-column: 1/4;
+            grid-row: 1/3;
+            border: 3px blue solid;
+        }
+
+        .content2 {
+            grid-column: 1;
+            grid-row: 2;
+            border: 3px green dashed;
+        }
+
+        /* TRY ALSO THIS: */
+        /* .content2 { z-index: -2; } */  /* second div will be placed under first div */
 
         /* Coloring */
         .grid div { background-color: lightgray; }
@@ -27,15 +37,15 @@
     </style>
 </head>
 <body>
+    <p>
+        Description: div 1 is positioned into first two rows and 3 columns (6 cells in total). Div 2 is positioned into second row and first columns - it overlaps first div 1 because in html it is on second place. We could override this by using `z-index`.
+    </p>
     <div class="grid">
-        <div>1</div>
-        <div>2</div>
+        <div class="content1">1</div>
+        <div class="content2">2</div>
         <div>3</div>
         <div>4</div>
         <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
     </div>
 </body>
 </html>

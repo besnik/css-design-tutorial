@@ -18,17 +18,13 @@
         }
 
         .content1 {
-            grid-row-start:1;    /* first row */
-            grid-row-end:1;
-            grid-column-start:1; /* 3 columns */
-            grid-column-end:4;
+            grid-row:1/2;        /* first row - from 1st line till 2nd line */
+            grid-column:1/4;     /* 3 columns - from 1st line till 4th line */
         }
 
         .content5 {
-            grid-row-start:3;    /* third row */
-            grid-row-end:4;
-            grid-column-start:1; /* 3 columns */
-            grid-column-end:4;
+            grid-row:3;          /* third row, you can omit /4 if area spans into one track */
+            grid-column:1/4;     /* 3 columns */
         }
 
         /* Coloring */
@@ -38,7 +34,7 @@
 </head>
 <body>
     <p>
-        Description: in this example we have five divs that could represent header (1), left sidebar (2), main content (3), right sidebar (4) and footer (5). (1) and (5) are positioned using grid lines into three cells (that represents whole row) of our grid. Note that we used just styles of grid itself to define this layout. Then position content into apropriate cells. Inspect grid lines using developer tools (F12, then click grid icon next to the div that represents our grid).
+        Description: as opposed to example 14 you can use shorthands to compress definition of position (rows, columns) into one line. The value before `/` is start line, the value after the slash is end line.
     </p>
     <div class="grid">
         <div class="content1">1</div>
