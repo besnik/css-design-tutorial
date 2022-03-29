@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basic Concepts</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* CSS Grid */
+        .grid {
+            display:grid;
+            border: 3px solid red;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        }
+
+        /* Coloring */
+        .grid div { background-color: lightgray; }
+        .grid div:nth-child(even) { background-color: cornflowerblue; }
+    </style>
+</head>
+<body>
+    <p>
+        Description: you can use auto-fit in combination with minmax(80px, 1fr) to strech items accross whole available space, but at minimum each cell will take 80px. If there is not enough space, grid will automatically create new row. Items will be aligned into same columns because of grid.
+    </p>
+    <div class="grid">
+        <div>1</div>
+        <div>2 very very long text</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+</body>
+</html>

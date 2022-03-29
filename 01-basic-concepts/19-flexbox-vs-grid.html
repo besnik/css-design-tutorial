@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basic Concepts</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* CSS Grid */
+        .grid {
+            display:grid;
+            grid-template-columns: repeat(3, 1fr); /* three equal columns */
+            grid-auto-rows: 100px;
+            align-items: flex-end;
+            gap:20px;
+            background-color: cornsilk;
+        }
+
+        /* CSS Flexbox */
+        .flex {
+            display:flex;
+            border:1px solid red;
+            min-height: 100px;
+            align-items: flex-end;
+            gap:20px;
+            background-color: cornsilk;
+        }
+
+        /* vertical aligment, the attribute and values work for both grid and flexbox! */
+        .content1 { align-self: stretch; }
+        .content2 { align-self: flex-start; }
+
+        /* Coloring */
+        .grid > div, .flex > div { background-color: lightgray; }
+        .grid > div:nth-child(even), .flex > div:nth-child(even) { background-color: cornflowerblue; }
+        .grid > div, .flex > div { border: 2px solid green; }
+    </style>
+</head>
+<body>
+    <p style="margin-bottom:10px">
+        This example shows difference between CSS Grid and CSS Flexbox. Use CSS Grid for 2D layouts, use CSS Flexbox to align items in one dimension (vertical or horizonal). Note how attribute `align-self` on child elements work for both layouts. Same works also for other attributes, also on grid/flex component e.g. `gap`.
+    </p>
+    <p>
+        CSS Grid:
+    </p>
+    <div class="grid">
+        <div class="content1">1 align-self:stretch</div>
+        <div class="content2">2 align-self:flex-start</div>
+        <div>3 align-items:flex-end</div>
+        <div>4 align-items:flex-end</div>
+        <div>5 align-items:flex-end</div>
+    </div>
+    <p>
+        CSS Flexbox:
+    </p>
+    <div class="flex">
+        <div class="content1">1 align-self:stretch</div>
+        <div class="content2">2 align-self:flex-start</div>
+        <div>3 align-items:flex-end</div>
+        <div>4 align-items:flex-end</div>
+        <div>5 align-items:flex-end</div>
+    </div>
+</body>
+</html>
