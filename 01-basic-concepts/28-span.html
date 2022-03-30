@@ -12,36 +12,30 @@
         /* CSS Grid */
         .grid {
             display:grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-auto-rows: 100px;
-            
-            /* gap between cells */
-            gap:1em;
-
-            /* TRY ALSO: */
-            /*
-            column-gap: 20px;
-            row-gap:3em;
-            gap:1em 4em;
-            */
+            border: 1px solid red;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 50px;
+            gap:20px;
         }
+
+        .content1 { grid-row:1/span 2; }
+        .content4 { grid-row:2; grid-column:2/span 3}
 
         /* Coloring */
         .grid div { background-color: lightgray; }
-        .grid div:nth-child(even) { background-color: lightyellow; }
+        .grid div:nth-child(even) { background-color: cornflowerblue; }
     </style>
 </head>
 <body>
     <p>
-        Description: you define space (gap) between cells using `gap` property. You can also set separate gap between columns and gap between rows individualy using `row-gap` and `column-gap`. 
+        Description: property `span` defines number of tracks the element should expand.
     </p>
     <div class="grid">
-        <div>1</div>
+        <div class="content1">1</div>
         <div>2</div>
         <div>3</div>
-        <div>4</div>
+        <div class="content4">4</div>
         <div>5</div>
-        <div>6</div>
     </div>
 </body>
 </html>
