@@ -10,15 +10,27 @@
         html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
 
         /* CSS Grid */
+        /* mobile first approarch */
         .grid {
             display:grid;
             border: 1px solid red;
             grid-auto-rows: minmax(50px, auto);
             gap:20px;
             grid-template-areas: 
-            "header  header header header"
-            "sidebar main   main   main"
-            "footer  footer footer footer";
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+        }
+
+        /* larger screen */
+        @media (min-width:700px) {
+            .grid {
+                grid-template-areas: 
+                "header  header header header"
+                "sidebar main   main   main"
+                "footer  footer footer footer";
+            }
         }
 
         .content1 { grid-area: header; }
@@ -33,7 +45,7 @@
 </head>
 <body>
     <p>
-        Description: named areas is alternative method to place elements inside grid. You can use it alone or in combination with grid lines. With this method we don't need to define anything in elements (content). Placement is done on single place in grid styles!
+        Description: "." marks empty cell in grid-template-areas definition. All of this allow you to see in CSS grid definition how the layout looks like. Fantastic!
     </p>
     <div class="grid">
         <div class="content1">1</div>
