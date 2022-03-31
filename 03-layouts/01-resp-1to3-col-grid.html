@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basic Concepts</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* CSS Grid */
+        /* Mobile first approach */
+        .grid {
+            display:grid;
+            gap:1rem;
+            grid-template-areas: 
+                "header"
+                "nav"
+                "content"
+                "sidebar"
+                "ad"
+                "footer"
+            ;
+        }
+
+        .header     { grid-area:header; }
+        .nav        { grid-area:nav; }
+        .content    { grid-area:content; }
+        .sidebar    { grid-area:sidebar; }
+        .ad         { grid-area:ad; }
+        .footer     { grid-area:footer; }
+
+        /* Larger screen */
+        @media(min-width:600px) {
+            .grid {
+                grid-template-columns: 1fr 3fr;
+                grid-template-areas: 
+                    "header  header"
+                    "nav     nav"
+                    "sidebar content"
+                    "ad      footer"
+                ;
+            }
+
+            .nav ul {
+                display:flex;
+                justify-content:space-between;
+            }
+        }
+
+        /* Large screen */
+        @media(min-width:900px) {
+            .grid {
+                grid-template-columns: 1fr 4fr 1fr;
+                grid-template-areas: 
+                    "header header  header"
+                    "nav    content sidebar"
+                    "nav    content ad"
+                    "footer footer  footer"
+                ;
+            }
+
+            .nav ul {
+                flex-direction: column;
+            }
+        }
+
+        /* Coloring */
+        .header { background-color: aquamarine; padding:2rem; }
+        .footer { background-color: cornflowerblue; padding:2rem; }
+        .nav { background-color: blanchedalmond; padding:1rem; }
+        .sidebar { background-color: darkorange; padding:2rem; }
+        .content { background-color: lightpink; padding:1rem; }
+        .ad { background-color: blueviolet; padding:2rem; }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <header class="header">header</header>
+        <nav class="nav">
+            <ul>
+                <li><a href="">Nav 1</a></li>
+                <li><a href="">Nav 2</a></li>
+                <li><a href="">Nav 3</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <h1>This is main content</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat distinctio debitis sed libero nostrum error. Nesciunt dolor facere impedit, nihil debitis molestias cumque rem temporibus voluptatibus. Et eius facilis mollitia, autem minus eveniet numquam maiores placeat temporibus illum velit magni id alias molestias! Blanditiis, maxime minima facere dolores repudiandae ratione iste praesentium iusto a perferendis ducimus quisquam alias saepe asperiores pariatur modi dolore vero in at error aperiam accusantium fugit?</p>
+        </main>
+        <aside class="sidebar">sidebar</aside>
+        <div class="ad">advertisement</div>
+        <footer class="footer">footer</footer>
+    </div>
+</body>
+</html>

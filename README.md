@@ -18,7 +18,7 @@ If you are new to CSS Grid start with [01-basic-concepts](/01-basic-concepts/).
 
 Open each file in browser and play with code. There is documentation included in the source code including more examples to play with.
 
-Watch live preview on `codepen`:
+Watch `basic concepts` live preview on `codepen`:
  - [01-plain-grid.html](https://codepen.io/besnik-the-sasster/pen/rNpyQwQ)
  - [02-columns-px-unit](https://codepen.io/besnik-the-sasster/pen/OJzmdwK)
  - [03-columns-fr-unit](https://codepen.io/besnik-the-sasster/pen/zYpwemP)
@@ -37,6 +37,9 @@ Watch live preview on `codepen`:
  - [16-gaps-between-cells](https://codepen.io/besnik-the-sasster/pen/rNpmPLM)
  - [17-nested-grid](https://codepen.io/besnik-the-sasster/pen/QWavYrj)
  - [18-overlapping](https://codepen.io/besnik-the-sasster/pen/vYpmPjO)
+
+Watch `layouts` line preview on `codepen`:
+ - [01 - responsive 1-3 columns grid template areas ](https://codepen.io/besnik-the-sasster/pen/ZEvXpBo)
 
 ## Learning CSS Grid layouts
 
