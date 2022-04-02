@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basic Concepts</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+        
+        /* Body */
+        body { 
+            overflow-x: hidden; /* hidden sliding panels won't create horizonval scrollbar */
+        }
+
+        /* CSS Grid */
+        .grid {
+            display:grid;
+            gap:1rem;
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-areas: 
+                "left main right"
+            ;
+            height: 100vh;
+        }
+
+        .left  { grid-area:left; transform: translateX(0%); }
+        .main  { grid-area:main; }
+        .right { grid-area:right; }
+
+        /* Coloring */
+        .left { background-color: aquamarine; padding:2rem; }
+        .main { background-color: cornflowerblue; padding:2rem; }
+        .right { background-color: blanchedalmond; padding:1rem; }
+
+        /* Right sliding panel */
+        /* This one is out of the grid as we want to have flexible width of it independent from grid columns */
+        .right-panel {
+            position: absolute;
+            top:0px;
+            right:0px;
+            width:500px;
+            height: 100vh;
+            z-index: 1;
+            background-color: burlywood;
+            transform: translateX(0%);
+            transition: all 300ms ease;
+        }
+
+        .collapsed {
+            transform: translateX(100%);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <aside class="left">left column</aside>
+        <main class="main">
+            <h1>This is main content</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat distinctio debitis sed libero nostrum error. Nesciunt dolor facere impedit, nihil debitis molestias cumque rem temporibus voluptatibus. Et eius facilis mollitia, autem minus eveniet numquam maiores placeat temporibus illum velit magni id alias molestias! Blanditiis, maxime minima facere dolores repudiandae ratione iste praesentium iusto a perferendis ducimus quisquam alias saepe asperiores pariatur modi dolore vero in at error aperiam accusantium fugit?</p>
+        </main>
+        <aside class="right">
+            right column
+            <button id="open-right-panel">open right panel</button>
+        </aside>
+    </div>
+    <div id="right-panel" class="right-panel collapsed">
+        Right sliding panel. This is out of the grid as we want to have it flexible with different width than grid columns.
+        <button id="close-right-panel">close</button>
+    </div>
+
+    <script>
+        const rightPanel = document.querySelector('#right-panel');
+        const closeRightPanel = document.querySelector('#close-right-panel');
+        const openRightPanel = document.querySelector('#open-right-panel');
+        openRightPanel.onclick = () => {
+            rightPanel.classList.toggle('collapsed');
+        };
+        closeRightPanel.onclick = () => {
+            rightPanel.classList.toggle('collapsed');
+        };
+    </script>
+</body>
+</html>
