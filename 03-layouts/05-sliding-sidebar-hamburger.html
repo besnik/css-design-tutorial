@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basic Concepts</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <style>
+        /* Global variables */
+        :root {
+            --sidebar-width-normal:16rem;
+            --sidebar-width-mini:6rem;
+            --sidebar-transition-time:300ms;
+        }
+
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+        
+        /* Body */
+        body { 
+            overflow-x: hidden; /* hidden sliding panels won't create horizonval scrollbar */
+        }
+
+        /* CSS Grid */
+        .grid {
+            border: 8px purple dashed;
+            display:grid;
+            gap:1rem;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr;
+            grid-template-areas: 
+                "top"
+                "main"
+            ;
+            height: 100vh;
+
+            /* code for sidebar */
+            padding-left: var(--sidebar-width-normal); /* this is default position, menu is open */
+            transition: all var(--sidebar-transition-time) ease;
+        }
+
+        .grid-mini {
+            padding-left: var(--sidebar-width-mini);
+        }
+
+        .grid-no-sidebar {
+            padding-left: 0px;
+        }
+
+        /* Position elements into grid layout */
+        .main     { grid-area:main; }
+        .top      { grid-area:top; }
+
+        /* Sidebar */
+        .sidebar {
+            position: absolute;
+            top:0px;
+            left:0px;
+            width:var(--sidebar-width-normal);
+            height:100vh;
+            border: 4px red dashed;
+            display: flex;
+            flex-direction: column;
+            justify-content:flex-start;
+            align-items: stretch;
+            gap:10px;
+            transition: all var(--sidebar-transition-time) ease;
+        }
+        
+        /* mini sidebar */
+        .sidebar-mini {
+            width:var(--sidebar-width-mini);
+        }
+
+        .sidebar-collapse {
+            transform: translateX(-100%);
+        }
+
+        /* mouse over mini sidebar: expand to full width, grid stays the same 
+           because sidebar is idenpendent from grid! */
+        .sidebar-mini:hover {
+            width:var(--sidebar-width-normal);
+        }
+
+        .sidebar :last-child {
+            margin-top: auto;
+        }
+
+        .sidebar > div {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .sidebar > div > span:last-child { display: contents; }
+
+        .sidebar > div { border: 4px blue dashed; }
+
+        /* Coloring */
+        .sidebar { background-color: #7fffd450; }
+        .main { background-color: cornflowerblue; }
+
+    </style>
+</head>
+<body>
+    <aside class="sidebar sidebar-mini">
+        <div>Top</div>
+        <div>
+            <span class="material-icons">grid_view</span> 
+            <span>Menu 1</span>
+        </div>
+        <div>
+            <span class="material-icons">grid_view</span> 
+            <span>Menu 2</span>
+        </div>
+        <div>
+            <span class="material-icons">grid_view</span> 
+            <span>Menu 3</span>
+        </div>
+        <div>
+            <button id="minimize">CLICK ME &rightarrow;</button>
+        </div>
+    </aside>
+    <div class="grid grid-mini">
+        <nav class="top">
+            <button id="hamburger">CLICK Hamburger</button> This is top nav
+        </nav>
+        <main class="main">
+            <h1>This is main content</h1>
+            <p>In this example the left sidebar is independent of grid. This alows more flexibility like sliding OVER the grid without grid columns being resized and even COLLAPSE whole menu with hamburger menu. The downside is that we have to have more code sync sidebar width and grid left padding.</p>
+        </main>
+    </div>
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        const grid = document.querySelector('.grid');
+        const btnMinimize = document.querySelector('#minimize');
+        const btnHamburger = document.querySelector('#hamburger');
+
+        btnMinimize.onclick = () => {
+            grid.classList.toggle('grid-mini');
+            sidebar.classList.toggle('sidebar-mini');
+        };
+
+        btnHamburger.onclick = () => {
+            grid.classList.toggle('grid-no-sidebar');
+            sidebar.classList.toggle('sidebar-collapse');
+        };
+    </script>
+</body>
+</html>
