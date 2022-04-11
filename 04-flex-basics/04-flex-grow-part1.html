@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* flex */
+        .flex {
+            border: 4px solid red;
+            display: flex;
+            width: 400px;
+        }
+
+        .flex div {
+            flex-grow: 1; /* remaning free space is equality distributed to all items */
+        }
+        
+        /* Coloring */
+        .flex div { background-color: lightgray; }
+        .flex div:nth-child(even) { background-color: cornflowerblue; }
+    </style>
+</head>
+<body>
+    <p>The remaning free space in container is equality distributed to all items filling all space.</p>
+    <div class="flex">
+        <div class="item1">1 this</div>
+        <div class="item2">2 is</div>
+        <div class="item3">3 veryyyyyy</div>
+        <div class="item4">4 long</div>
+    </div>    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* flex */
+        .flex {
+            border: 4px solid red;
+            display: flex;
+            width: 300px;
+        }
+
+        .flex div {
+            flex-basis: 100px; /* defines base size of item. flex will re-calculate real width according to other settings like width of container or shrinking/growing of items. */
+        }
+
+        .item1 {
+            flex-shrink: 0.5; /* will shrink 50% slower from missing space */
+        }
+
+        .item2 {
+            flex-shrink: 1; /* will shrink 100% from missing space, 1 is default value, now the ratio is 0.5:1:0:1.  */
+        }
+
+        .item3 {
+            flex-shrink: 0; /* will NOT shrink at all */
+        }
+
+        /* Coloring */
+        .flex div { background-color: lightgray; }
+        .flex div:nth-child(even) { background-color: cornflowerblue; }
+    </style>
+</head>
+<body>
+    <p>Flex basis is set to 100px for 4 items. In total 400px. But flex container has limited width of 300px, so flex will shrink the items because with 100px width each they won't fit in. Ratio is set as: 0.5 : 1: 0 : 1. This means that 2nd and 4th item will shrink equally, 1st item will shrink 2x slower than 2nd and 4th, 3rd item won't shrink at all!</p>
+    <div class="flex">
+        <div class="item1">1 this</div>
+        <div class="item2">2 is</div>
+        <div class="item3">3 veryyyyyy</div>
+        <div class="item4">4 long</div>
+    </div>    
+</body>
+</html>

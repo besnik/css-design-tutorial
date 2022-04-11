@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* flex */
+        .flex {
+            border: 4px solid red;
+            display: flex;
+        }
+
+        .flex div {
+            flex-basis: 100px; /* defines base size of item. It is not fixed, with combination of flex-grow or flex-shrink you can change width of items according to flex container. */
+        }
+
+        /* Coloring */
+        .flex div { background-color: lightgray; }
+        .flex div:nth-child(even) { background-color: cornflowerblue; }
+    </style>
+</head>
+<body>
+    <p>Using flex basis you can control size of item in flex container. By default it is automatically calculated from the content.</p>
+    <div class="flex">
+        <div class="item1">1 this</div>
+        <div class="item2">2 is</div>
+        <div class="item3">3 veryyyyyy</div>
+        <div class="item4">4 long</div>
+    </div>    
+</body>
+</html>

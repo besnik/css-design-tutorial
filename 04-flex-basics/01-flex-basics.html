@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        /* flex */
+        .flex {
+            border: 4px solid red;
+            display: flex;
+        }
+
+        /* Coloring */
+        .flex div { background-color: lightgray; }
+        .flex div:nth-child(even) { background-color: cornflowerblue; }
+    </style>
+</head>
+<body>
+    <p>Flex container is 1 dimensional layout. By default it goes in one row and items are stacked to the left.</p>
+    <div class="flex">
+        <div>1</div>
+        <div>2 this is a longer text</div>
+        <div>3</div>
+        <div>4</div>
+    </div>    
+</body>
+</html>
