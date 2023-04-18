@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue global build</title>
+    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+    <style>
+        /* Basic CSS Reset */
+        html { box-sizing: border-box; font-family: 'Poppins', sans-serif; } 
+        *, *:before, *:after { box-sizing: inherit; }
+        * { margin: 0; padding: 0; }
+
+        /* Border around vue app */
+        #app {
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="importmap">
+    // We can teach the browser where to locate the vue import by using Import Maps:
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import { createApp } from 'vue'
+    import ComponentApp from './component-app.js'
+
+    const app = createApp(ComponentApp)
+    app.mount("#app")
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue global build</title>
+    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+    <style>
+        /* Basic CSS Reset */
+        html { box-sizing: border-box; font-family: 'Poppins', sans-serif; } 
+        *, *:before, *:after { box-sizing: inherit; }
+        * { margin: 0; padding: 0; }
+
+        /* Border around vue app */
+        #app {
+            border: 1px dashed #ddd;
+        }
+    </style>
+</head>
+<body>
+  <script type="importmap">
+    // We can teach the browser where to locate the vue import by using Import Maps:
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+  </script>
+
+  <div id="app">
+    <button @click="toggle">Toggle</button>
+    <p v-if="isVisible">template with emoji chars 😀❤🤦‍♂️👻</p>
+    <p v-else>No emojis</p>
+    <pre>state: {{ isVisible }}</pre>
+  </div>
+
+  <script type="module">
+    import { createApp, ref, reactive } from 'vue'
+
+    const app = createApp({
+      
+      setup() {
+        
+        let isVisible = ref(true)
+
+        let toggle = function() {
+          isVisible.value = !isVisible.value
+        }
+        
+        return {
+          isVisible,
+          toggle
+        }
+      }
+
+    });
+    app.mount('#app');
+  </script>
+
+</body>
+</html>
+

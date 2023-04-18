@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micro Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mikro-design-system.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class="text-4xl">Micro Design System</h1>
+    <p>This is hand-crafted mikro css design system. Core concepts were modeled in Figma and inspired by work of Tailwind and others. The below are basic building blocks for your next project.</p>
+
+    <h2 class="text-2xl">Defaults</h2>
+    <p>This is default font size 16px (1rem) and line-height 24px (1.5rem), font-weight:400, padding:0, border: 0.</p>
+
+    <h2 class="text-2xl">Typography > Font > Size (font-size and line-height)</h2>
+    <div class="grid-2cols">
+        <p>CSS Class</p>    <p>Example</p>
+        <p>text-xs</p>      <p class="text-xs">The five boxing wizards jump quickly.</p>
+        <p>text-sm</p>      <p class="text-sm">The five boxing wizards jump quickly.</p>
+        <p>text-base</p>    <p class="text-base">The five boxing wizards jump quickly.</p>
+        <p>text-lg</p>      <p class="text-lg">The five boxing wizards jump quickly.</p>
+        <p>text-xl</p>      <p class="text-xl">The five boxing wizards jump quickly.</p>
+        <p>text-2xl</p>     <p class="text-2xl">The five boxing wizards jump quickly.</p>
+        <p>text-3xl</p>     <p class="text-3xl">The five boxing wizards jump quickly.</p>
+        <p>text-4xl</p>     <p class="text-4xl">The five boxing wizards jump quickly.</p>
+        <p>text-5xl</p>     <p class="text-5xl">The five boxing wizards jump quickly.</p>
+        <p>text-6xl</p>     <p class="text-6xl">The five boxing wizards jump quickly.</p>
+        <p>text-7xl</p>     <p class="text-7xl">The five boxing wizards jump quickly.</p>
+    </div>
+    
+    <h2 class="text-2xl">Typography > Font > Weight</h2>
+    <div class="grid-2cols">
+        <p>CSS Class</p>    <p>Example</p>
+        <p>text-w-100</p>   <p class="text-w-100 text-xl">This is some font weight</p>
+        <p>text-w-300</p>   <p class="text-w-300 text-xl">This is some font weight</p>
+        <p>text-w-400</p>   <p class="text-w-400 text-xl">This is some font weight</p>
+        <p>text-w-500</p>   <p class="text-w-500 text-xl">This is some font weight</p>
+        <p>text-w-700</p>   <p class="text-w-700 text-xl">This is some font weight</p>
+        <p>text-w-900</p>   <p class="text-w-900 text-xl">This is some font weight</p>
+    </div>
+
+    <h2 class="text-2xl">Colors</h2>
+    <div style="display: flex;">
+        <div class="grid-2cols">
+            <p>CSS Class</p>    <p>Example</p>
+            <p>color-neutral-50</p>    <div class="bg-color-neutral-50 box"></div>
+            <p>color-neutral-100</p>   <div class="bg-color-neutral-100 box"></div>
+            <p>color-neutral-200</p>   <div class="bg-color-neutral-200 box"></div>
+            <p>color-neutral-300</p>   <div class="bg-color-neutral-300 box"></div>
+            <p>color-neutral-400</p>   <div class="bg-color-neutral-400 box"></div>
+            <p>color-neutral-500</p>   <div class="bg-color-neutral-500 box"></div>
+            <p>color-neutral-600</p>   <div class="bg-color-neutral-600 box"></div>
+            <p>color-neutral-700</p>   <div class="bg-color-neutral-700 box"></div>
+            <p>color-neutral-800</p>   <div class="bg-color-neutral-800 box"></div>
+            <p>color-neutral-900</p>   <div class="bg-color-neutral-900 box"></div>
+        </div>
+        <div class="grid-2cols">
+            <p>CSS Class</p>             <p>Example</p>
+            <p>color-white</p>           <div class="bg-color-white box"></div>
+            <p>color-black</p>           <div class="bg-color-black box"></div>
+            <p>color-primary-400</p>     <div class="bg-color-primary-400 box"></div>
+            <p>color-alternative-400</p> <div class="bg-color-alternative-400 box"></div>
+            <p>color-success-400</p>     <div class="bg-color-success-400 box"></div>
+            <p>color-warning-400</p>     <div class="bg-color-warning-400 box"></div>
+            <p>color-error-400</p>       <div class="bg-color-error-400 box"></div>
+        </div>
+    </div>
+    
+    <h2 class="text-2xl">Rounded</h2>
+    <div class="grid-2cols">
+        <p>CSS Class</p>    <p>Example</p>
+        <p>rounded-none</p> <div class="rounded-none bg-color-primary-400 box"></div>
+        <p>rounded-sm</p> <div class="rounded-sm bg-color-primary-400 box"></div>
+        <p>rounded</p> <div class="rounded bg-color-primary-400 box"></div>
+        <p>rounded-md</p> <div class="rounded-md bg-color-primary-400 box"></div>
+        <p>rounded-lg</p> <div class="rounded-lg bg-color-primary-400 box"></div>
+        <p>rounded-xl</p> <div class="rounded-xl bg-color-primary-400 box"></div>
+        <p>rounded-2xl</p> <div class="rounded-2xl bg-color-primary-400 box"></div>
+        <p>rounded-3xl</p> <div class="rounded-3xl bg-color-primary-400 box"></div>
+        <p>rounded-full</p> <div class="rounded-full bg-color-primary-400 box"></div>
+    </div>
+    
+    <h2 class="text-2xl">Button</h2>
+    <button style="height:2.5rem;padding-left: 1.5rem;padding-right:1.5rem;border:1px solid #ddd;cursor: pointer;" class="text-w-600 rounded-md bg-color-neutral-100 color-neutral-700 text-base">Tailwind</button>
+
+    <h2 class="text-2xl">End</h2>
+</body>
+</html>

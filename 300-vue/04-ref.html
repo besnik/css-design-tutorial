@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue global build</title>
+    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+    <style>
+        /* Basic CSS Reset */
+        html { box-sizing: border-box; font-family: 'Poppins', sans-serif; } 
+        *, *:before, *:after { box-sizing: inherit; }
+        * { margin: 0; padding: 0; }
+
+        /* Border around vue app */
+        #app {
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+  <h3>Vue tutorial</h3>
+  <div id="app">
+    <p>In this div container our Vue app lives.</p>
+    <p>{{ message }}</p>
+    <p>{{ state.cislo }} {{ state.text }}</p>
+    <p>{{ state_ref.cislo }} {{ state_ref.text }}</p>
+  </div>
+
+  <script type="importmap">
+    // We can teach the browser where to locate the vue import by using Import Maps:
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import { createApp, ref, reactive } from 'vue'
+
+    const app = createApp({
+      
+      setup() {
+        // https://dmitripavlutin.com/ref-reactive-differences-vue/
+        const message = ref("Reaktivny text")
+        const state = reactive({cislo:123, text: "ahoj"});
+        const state_ref = ref({cislo:555, text: "ref"});
+        
+        return { 
+          message,
+          state,
+          state_ref
+        }
+      }
+
+    });
+    app.mount('#app');
+  </script>
+
+</body>
+</html>
+
+<!--
+ref() can store a primitive value, while reactive() cannot.
+You access the value stored in a ref() using <ref>.value, while reactive() object can be used directly as a regular object.
+ref() value can be reassigned to an entirely new object, while reactive() cannot.
+ref() is typed as Ref<V>, while the reactive object returned by reactive(originalObject) usually maintains the type of the originalObject.
+watch() (when used without options) normally watches only direct changes of <ref>.value, while watching deeply reactive() objects.
+
+  You'd use ref() to store primitives or value objects, but reactive() if you're interested to watch deep changes of a mutable object.
+-->

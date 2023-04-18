@@ -1,0 +1,169 @@
+/* Micro Design System 1.0 by Slaf */
+
+/* Basic CSS Reset */
+/* font-size is set to 16px, from this point we use 'rem' units that calculate from this 16px=1rem value */
+html { box-sizing: border-box; font-family: 'Roboto', sans-serif; font-size:16px; line-height: 1.5rem; font-weight:400; } 
+*, *:before, *:after { box-sizing: inherit; }
+* { margin: 0; padding: 0; }
+
+/* Typography > Text > Size (font-size a line-height) */
+/* size in rem units, calculated from base 16px on html font-size element (16px=1rem) */
+.text-xs   { font-size: .75rem;  /* 12px */ line-height: 1rem;    /* 16px */ }
+.text-sm   { font-size: .875rem; /* 14px */ line-height: 1.25rem; /* 20px */ }
+.text-base { font-size: 1rem;    /* 16px */ line-height: 1.5rem;  /* 24px */ }
+.text-lg   { font-size: 1.125rem;/* 18px */ line-height: 1.75rem; /* 28px */ }
+.text-xl   { font-size: 1.25rem; /* 20px */ line-height: 1.75rem; /* 28px */ }
+.text-xl   { font-size: 1.25rem; /* 20px */ line-height: 1.75rem; /* 28px */ }
+.text-2xl  { font-size: 1.5rem;  /* 24px */ line-height: 2rem;    /* 32px */ }
+.text-3xl  { font-size: 1.875rem;/* 30px */ line-height: 2.25rem; /* 36px */ }
+.text-4xl  { font-size: 2.25rem; /* 36px */ line-height: 2.5rem;  /* 40px */ }
+.text-5xl  { font-size: 3rem;    /* 48px */ line-height: 3.25rem; /* 52px */ }
+.text-6xl  { font-size: 3.75rem; /* 60px */ line-height: 4.125rem;/* 66px */ }
+.text-7xl  { font-size: 4.5rem;  /* 72px */ line-height: 5rem;    /* 80px */ }
+
+/* Typography > Text > Weight */
+/* Available text weight depends on 1) Font support for given weights and 2) imported Font weights.
+   For example Roboto font supports only following weights: 100,300,400,500,700,900.
+*/
+.text-w-100 { font-weight: 100; } /* Thin (Hairline) */
+.text-w-200 { font-weight: 200; } /* Extra Light (Ultra Light) */
+.text-w-300 { font-weight: 300; } /* Light */
+.text-w-400 { font-weight: 400; } /* Normal (Regular) */
+.text-w-500 { font-weight: 500; } /* Medium */
+.text-w-600 { font-weight: 600; } /* Semi Bold (Demi Bold) */
+.text-w-700 { font-weight: 700; } /* Bold */
+.text-w-800 { font-weight: 800; } /* Extra Bold (Ultra Bold) */
+.text-w-900 { font-weight: 900; } /* Black (Heavy) */
+.text-w-950 { font-weight: 950; } /* Extra Black (Ultra Black) */
+
+/* Colors */
+:root {
+    --color-black: #000;
+    --color-white: #fff;
+
+    /* Neutral (shades of gray) */
+    --color-neutral-50: #FAFAFA;
+    --color-neutral-100: #F5F5F5;
+    --color-neutral-200: #E5E5E5;
+    --color-neutral-300: #D4D4D4;
+    --color-neutral-400: #A3A3A3;
+    --color-neutral-500: #737373;
+    --color-neutral-600: #525252;
+    --color-neutral-700: #404040;
+    --color-neutral-800: #262626;
+    --color-neutral-900: #171717;
+
+    /* Primary */
+    --color-primary-50: #F0F9FF;
+    --color-primary-100: #E0F2FE;
+    --color-primary-200: #BAE6FD;
+    --color-primary-300: #7DD3FC;
+    --color-primary-400: #38BDF8;
+    --color-primary-500: #0EA5E9;
+    --color-primary-600: #0284C7;
+    --color-primary-700: #0067AB;
+    --color-primary-800: #075985;
+    --color-primary-900: #0C4A6E;
+
+    /* Alternative */
+    --color-alternative-50: #F9F3EC;
+    --color-alternative-100: #F2E7D9;
+    --color-alternative-200: #E3CEB5;
+    --color-alternative-300: #D1B694;
+    --color-alternative-400: #BC9D76;
+    --color-alternative-500: #A5835A;
+    --color-alternative-600: #937148;
+    --color-alternative-700: #805F38;
+    --color-alternative-800: #6B4D29;
+    --color-alternative-900: #543B1C;
+
+    /* Success */
+    --color-success-50: #F0FDF4;
+    --color-success-100: #DCFCE7;
+    --color-success-200: #BBF7D0;
+    --color-success-300: #86EFAC;
+    --color-success-400: #4ADE80;
+    --color-success-500: #22C55E;
+    --color-success-600: #16A34A;
+    --color-success-700: #15803D;
+    --color-success-800: #166534;
+    --color-success-900: #14532D;
+
+    /* Warning */
+    --color-warning-50: #FEFCE8;
+    --color-warning-100: #FEF9C3;
+    --color-warning-200: #FEF08A;
+    --color-warning-300: #FDE047;
+    --color-warning-400: #FACC15;
+    --color-warning-500: #EAB308;
+    --color-warning-600: #CA8A04;
+    --color-warning-700: #A16207;
+    --color-warning-800: #854D0E;
+    --color-warning-900: #713F12;
+
+    /* Error */
+    --color-error-50: #FEF2F2;
+    --color-error-100: #FEE2E2;
+    --color-error-200: #FECACA;
+    --color-error-300: #FCA5A5;
+    --color-error-400: #F87171;
+    --color-error-500: #EF4444;
+    --color-error-600: #DC2626;
+    --color-error-700: #B91C1C;
+    --color-error-800: #991B1B;
+    --color-error-900: #7F1D1D;
+}
+
+/* basic colors */
+.color-black { color:var(--color-black); }
+.color-white { color:var(--color-white); }
+
+.bg-color-black { background-color:var(--color-black); }
+.bg-color-white { background-color:var(--color-white); }
+
+/* neutral color - foreground */
+.color-neutral-50 { color:var(--color-neutral-50); }
+.color-neutral-100 { color:var(--color-neutral-100); }
+.color-neutral-200 { color:var(--color-neutral-200); }
+.color-neutral-300 { color:var(--color-neutral-300); }
+.color-neutral-400 { color:var(--color-neutral-400); }
+.color-neutral-500 { color:var(--color-neutral-500); }
+.color-neutral-600 { color:var(--color-neutral-600); }
+.color-neutral-700 { color:var(--color-neutral-700); }
+.color-neutral-800 { color:var(--color-neutral-800); }
+.color-neutral-900 { color:var(--color-neutral-900); }
+
+/* neutral color - background */
+.bg-color-neutral-50 { background-color:var(--color-neutral-50); }
+.bg-color-neutral-100 { background-color:var(--color-neutral-100); }
+.bg-color-neutral-200 { background-color:var(--color-neutral-200); }
+.bg-color-neutral-300 { background-color:var(--color-neutral-300); }
+.bg-color-neutral-400 { background-color:var(--color-neutral-400); }
+.bg-color-neutral-500 { background-color:var(--color-neutral-500); }
+.bg-color-neutral-600 { background-color:var(--color-neutral-600); }
+.bg-color-neutral-700 { background-color:var(--color-neutral-700); }
+.bg-color-neutral-800 { background-color:var(--color-neutral-800); }
+.bg-color-neutral-900 { background-color:var(--color-neutral-900); }
+
+.color-primary-400 { color:var(--color-primary-400); }
+.color-alternative-400 { color:var(--color-alternative-400); }
+.color-success-400 { color:var(--color-success-400); }
+.color-warning-400 { color:var(--color-warning-400); }
+.color-error-400 { color:var(--color-error-400); }
+
+.bg-color-primary-400 { background-color:var(--color-primary-400); }
+.bg-color-alternative-400 { background-color:var(--color-alternative-400); }
+.bg-color-success-400 { background-color:var(--color-success-400); }
+.bg-color-warning-400 { background-color:var(--color-warning-400); }
+.bg-color-error-400 { background-color:var(--color-error-400); }
+
+/* Border radius */
+.rounded-none   { border-radius:0px; }
+.rounded-sm     { border-radius:0.125rem; } /* 2px  */
+.rounded        { border-radius:0.25rem; }  /* 4px  */
+.rounded-md     { border-radius:0.375rem; } /* 6px  */
+.rounded-lg     { border-radius:0.5rem; }   /* 8px  */
+.rounded-xl     { border-radius:0.75rem; }  /* 12px */
+.rounded-2xl    { border-radius:1rem; }     /* 16px */
+.rounded-3xl    { border-radius:1.5rem; }   /* 24px */
+.rounded-full   { border-radius:9999px; }
