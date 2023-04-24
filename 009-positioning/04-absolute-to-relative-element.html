@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS positioning</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        .container {
+            border: 3px solid red;
+            width: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Coloring */
+        .container p { 
+            background-color: lightgray;
+            border: 3px solid blue;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        p.absolute {
+            position:absolute;
+            background: yellow;
+            top:30px;
+            left:30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Absolute positioning</h1>
+
+        <p class="absolute">I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
+
+        <p>By default we span 100% of the width of our parent element, and our height is as tall as our child content. Our total width and height is our content + padding + border width/height.</p>
+
+        <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
+    </div>
+    <p>
+        We can change the positioning context, that is, which element the absolutely positioned element is positioned relative to. This is done by setting positioning on one of the element's ancestors: to one of the elements it's nested inside of. In this case we set position:relative to container div and yellow paragraph is absolutely positioned to container div instead of initial viewport.
+    </p>
+</body>
+</html>

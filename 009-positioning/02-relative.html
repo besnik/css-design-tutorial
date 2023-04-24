@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS positioning</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        .container {
+            border: 3px solid red;
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Coloring */
+        .container p { 
+            background-color: lightgray;
+            border: 3px solid blue;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        p.relative {
+            position:relative;
+            background: yellow;
+            top:30px;
+            left:30px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Description: Relative positioning is very similar to static positioning, except that once the positioned element has taken its place in the normal flow, you can then modify its final position using left, right, top, bottom.
+    </p>
+    <div class="container">
+        <h1>Relative positioning</h1>
+
+        <p class="relative">I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
+
+        <p>By default we span 100% of the width of our parent element, and our height is as tall as our child content. Our total width and height is our content + padding + border width/height.</p>
+
+        <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
+    </div>
+</body>
+</html>

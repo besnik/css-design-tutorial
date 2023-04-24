@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS positioning</title>
+    <style>
+        /* Basic CSS Reset */
+        * { margin: 0; padding: 0; }
+        html { box-sizing: border-box; } *, *:before, *:after { box-sizing: inherit; }
+
+        .container {
+            border: 3px solid red;
+            width: 400px;
+            height: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Coloring */
+        .container p { 
+            background-color: lightgray;
+            border: 3px solid blue;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        h1 {
+            position: fixed;
+            top: 0;
+            width: 394px;
+            background: greenyellow;
+            padding: 10px;
+        }
+
+        .container p:nth-of-type(1) { margin-top: 60px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fixed</h1>
+
+        <p>I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
+
+        <p>By default we span 100% of the width of our parent element, and our height is as tall as our child content. Our total width and height is our content + padding + border width/height.</p>
+
+        <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
+    </div>
+    <p>
+        This works in exactly the same way as absolute positioning, with one key difference: whereas absolute positioning fixes an element in place relative to its nearest positioned ancestor (the initial containing block if there isn't one), fixed positioning usually fixes an element in place relative to the <b>visible portion of the viewport</b>. This means that you can create useful UI items that are fixed in place, like persistent navigation menus that are always visible no matter how much the page scrolls.
+    </p>
+</body>
+</html>
